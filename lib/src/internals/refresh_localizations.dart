@@ -80,6 +80,7 @@ class RefreshLocalizations {
     'sv': SvRefreshString(),
     'pt': PtRefreshString(),
     'ko': KrRefreshString(),
+    'th': ThRefreshString(),
   };
 
   RefreshString? get currentLocalization {
@@ -116,7 +117,8 @@ class RefreshLocalizationsDelegate
       'pt',
       'sv',
       'nl',
-      'es'
+      'es',
+      'th',
     ].contains(locale.languageCode);
   }
 
@@ -634,4 +636,41 @@ class KrRefreshString implements RefreshString {
 
   @override
   String? refreshingText = "새로 고침 중…";
+}
+
+// Thai
+
+class ThRefreshString extends RefreshString {
+  @override
+  String? get canLoadingText => 'ปล่อยเพื่อโหลดข้อมูลเพิ่มเติม';
+
+  @override
+  String? get canRefreshText => 'ปล่อยเพื่อเรียกข้อมูลใหม่';
+
+  @override
+  String? get canTwoLevelText => 'ปล่อยเพื่อเข้าสู่ขั้นที่สอง';
+
+  @override
+  String? get idleLoadingText => 'ดึงขึ้นเพื่อโหลดข้อมูลเพิ่มเติม';
+
+  @override
+  String? get idleRefreshText => 'ดึงลงเพื่อเรียกข้อมูลใหม่';
+
+  @override
+  String? get loadFailedText => 'โหลดข้อมูลไม่สำเร็จ';
+
+  @override
+  String? get loadingText => 'กำลังโหลด...';
+
+  @override
+  String? get noMoreText => 'ไม่พบข้อมูลเพิ่มเติม';
+
+  @override
+  String? get refreshCompleteText => 'เรียกข้อมูลใหม่สำเร็จ';
+
+  @override
+  String? get refreshFailedText => 'เรียกข้อมูลใหม่ไม่สำเร็จ';
+
+  @override
+  String? get refreshingText => 'กำลังเรียกข้อมูลใหม่...';
 }
